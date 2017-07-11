@@ -1,0 +1,22 @@
+.jumbotron{
+  text-align: center;
+}
+.col-md-6{
+
+  text-align: center;
+}
+#playerTurn{
+  text-align: center;
+  background-color: #c0d1ed;
+}
+img{
+  width: 200px;
+}
+
+.blue{
+  background-color: #c0d1ed;
+}
+
+.red {
+  background-color: #e5b3a9;
+}
