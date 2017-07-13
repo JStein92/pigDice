@@ -1,17 +1,48 @@
+body{
+  font-family: 'Eczar', serif;
+}
+#intro{
+    font-size: 30px;
+}
+#game{
+  display: none;
+}
+.container{
+  width: 100%;
+}
 .jumbotron{
   text-align: center;
 }
 .col-md-6{
-
   text-align: center;
+}
+.floatRight{
+  float: right;
+}
+#diePicture{
+  width: 100px;
+
 }
 #playerTurn{
   text-align: center;
   background-color: #c0d1ed;
 }
-img{
-  width: 200px;
+#rollRow{
+margin: 20px;
 }
+#switchPlayers{
+  width: 100px;
+  height: 50px;
+  font-size: 2em;
+  margin-top: 25px;
+}
+#roll{
+  width: 100px;
+  height: 50px;
+  font-size: 2em;
+
+}
+
 
 .blue{
   background-color: #c0d1ed;

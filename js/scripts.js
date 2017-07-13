@@ -1,4 +1,6 @@
 var turn = 1;
+var player1Name = 'Player One';
+var numberOfDice;
 
 
 function Player(name, turnScore, totalScore){
@@ -8,33 +10,76 @@ function Player(name, turnScore, totalScore){
 }
 
 Player.prototype.roll = function(){
-  var dieValue = Math.floor(Math.random() * (6 - 0)) + 1;
-  $('#rolls').append(dieValue + '<br>');
-  return dieValue;
+  if (numberOfDice===1){
+    var dieValue = Math.floor(Math.random() * (6 - 0)) + 1;
+    $('#rolls').append(dieValue + '<br>');
+    return dieValue;
+  }
+  else {
+    var die1Value = Math.floor(Math.random() * (6 - 0)) + 1;
+    var die2Value = Math.floor(Math.random() * (6 - 0)) + 1;
+
+
+    if (die1Value===die2Value){
+      //double
+    }
+
+    return die1Value + die2Value;
+  }
+
+
+
 }
 
 function changeTurn(score){
   if (turn ===1){
     $('#p1TurnHistory').prepend("<p>" + score + "</p>");
     turn=2;
+    $('#turn').text(p2UserName);
+    $('#diePic').addClass("floatRight");
+
     $("#playerTurn").css('background-color', '#e5b3a9')
   }else{
     turn=1;
+      $('#turn').text(p1UserName);
+    $('#diePic').removeClass("floatRight");
       $('#p2TurnHistory').prepend("<p>" + score + "</p>");
       $("#playerTurn").css('background-color', '#c0d1ed')
   }
-    $('#turn').text(turn);
-}
 
+}
+var p1UserName = '';
+var p2UserName = '';
+var player1;
+var player2;
 $(function(){
-  var player1 = new Player('player1Name', 0,0);
-  var player2 = new Player ('player2Name', 0,0);
+
+$('form').submit(function(e){
+  e.preventDefault();
+   p1UserName = $('#playerOneName').val();
+   p2UserName = $('#playerTwoName').val();
+   player1 = new Player(p1UserName, 0,0);
+   player2 = new Player (p2UserName, 0,0);
+
+   if ($('.form-check-input:checked').val() === "oneDie"){
+     numberOfDice = 1;
+   }else {
+      numberOfDice = 2;
+   }
+   
   $('#p1TotalScore').text(player1.totalScore);
   $('#p2TotalScore').text(player2.totalScore);
-  $('#turn').text(turn);
+  $('.one').text(player1.name);
+  $('.two').text(player2.name);
+  $('#turn').text(p1UserName);
+  $('#intro').hide();
+  $('#game').show();
+
+
+});
 
   $('#roll').click(function(){
-var roll = 0;
+    var roll = 0;
     if(turn === 1){
        roll = player1.roll()
       if (roll >1){

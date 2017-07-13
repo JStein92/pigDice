@@ -6,34 +6,89 @@
   <link href="css/styles.css" rel="stylesheet" type="text/css">
   <script src="js/jquery-3.2.1.js"></script>
   <script src="js/scripts.js"></script>
+  <link href="https://fonts.googleapis.com/css?family=Eczar" rel="stylesheet">
 </head>
 <body>
+
+
+  <div id="intro">
+    <div class="jumbotron">
+    <form>
+      <div class="form-group">
+        <label for="playerOneName">Player One Name</label>
+        <input type="text" id="playerOneName" value="">
+      </div>
+
+      <div class="form-group">
+        <label for="playerTwoName">Player Two Name</label>
+        <input type="text" id="playerTwoName" value="">
+      </div>
+      <div class="form-check">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" value="oneDie" checked>
+        One Die.
+      </label>
+    </div>
+    <div class="form-check">
+    <label class="form-check-label">
+        <input type="radio" class="form-check-input" name="optionsRadios" value="twoDice">
+        Two Dice.
+      </label>
+    </div>
+      <button type="submit" id="enter">Go Play!</button>
+    </div>
+
+    </form>
+  </div>
+</div>
+
+  <div id="game">
+
   <div class="container">
     <div class="jumbotron">
       <h1>Pig Dice</h1>
     </div>
     <div id="playerTurn">
-      <h1>Player <span id="turn"></span>'s Turn</h1>
+      <h1><span id="turn"></span>'s Turn</h1>
     </div>
 
     <div class="row" id="rollRow">
-      <div class="col-md-6">
-        <img src="img/die.png" alt="" id="diePicture"/>
-        <br>
-        <button type="button" id="roll">Roll</button>
-      </div>
-      <div class="col-md-6">
-        <h2>Turn score: <span id="TurnScore"></span></h2>
-        <button type="button" id="switchPlayers">Hold!</button>
+      <div class="col-md-12">
+        <div class="row">
 
+          <div class="col-md-6" id="diePic">
+            <div class="row">
+
+            <div class="col-md-6">
+              <img src="img/die.png" alt="" id="diePicture"/>
+              <br>
+              <button type="button" class="btn-success"id="roll">Roll</button>
+            </div>
+            <div class="col-md-6">
+              <h2>Turn score: <span id="TurnScore"></span></h2>
+              <button type="button" id="switchPlayers" class="btn-warning">Hold!</button>
+            </div>
+
+            </div>
+
+
+
+          </div>
+
+          <div class="col-md-6">
+          </div>
+
+        </div>
       </div>
+
+
     </div>
     <div class="row">
       <div class="col-md-6 blue">
-        <h1 id="one">Player 1</h1>
+        <h1 class="one">Player 1</h1>
       </div>
       <div class="col-md-6 red">
-        <h1 id="two">Player 2</h1>
+        <h1 class="two">Player 2</h1>
       </div>
 
     </div>
@@ -59,6 +114,7 @@
     </div>
 
   </div>
+</div>
 
 
 </body>
